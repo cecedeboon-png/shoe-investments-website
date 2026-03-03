@@ -75,7 +75,22 @@ Gebruik `data-type="exit"` en `badge-exit` voor afgeronde investeringen.
 
 ## Lokaal testen
 
-Dubbelklik op `index.html` om de website in je browser te openen. Alle links werken lokaal — geen server nodig.
+Aanbevolen preview-methode:
+
+```bash
+cd /Users/cecedeboon/Documents/Projects/shoe-investments-website
+python3 -m http.server 4321
+```
+
+Open daarna `http://localhost:4321` in Google Chrome:
+
+```bash
+open -a "Google Chrome" http://localhost:4321
+```
+
+Dit benadert het gedrag van de live website beter dan `file://`.
+
+Fallback: je kunt nog steeds op `index.html` dubbelklikken om de site direct in je browser te openen. Alle links werken lokaal zonder server.
 
 ---
 
@@ -83,12 +98,14 @@ Dubbelklik op `index.html` om de website in je browser te openen. Alle links wer
 
 ### Optie 1: GitHub Pages (aanbevolen)
 
-1. Maak een gratis account op [github.com](https://github.com)
-2. Maak een nieuw repository aan (bijv. `shoeinvestments-website`)
-3. Upload alle bestanden
-4. Ga naar Settings → Pages → Source: `main` branch
-5. Je website is live op `https://jouwgebruikersnaam.github.io/shoeinvestments-website/`
-6. **Eigen domeinnaam:** In GitHub Pages instellingen kun je een eigen domein (bijv. `shoeinvestments.nl`) koppelen
+Gebruik voor deze repository:
+
+1. Repo: `cecedeboon-png/shoe-investments-website`
+2. GitHub Pages bron: `main` branch, root (`/`)
+3. Het bestand `.nojekyll` staat al in de repo om statische hosting veilig te laten werken
+4. Verwachte URL: `https://cecedeboon-png.github.io/shoe-investments-website/`
+5. Elke push naar `main` publiceert automatisch een nieuwe versie
+6. Deel simpelweg de GitHub Pages URL met teammates voor review in Chrome
 
 ### Optie 2: Netlify
 
