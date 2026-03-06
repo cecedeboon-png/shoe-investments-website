@@ -109,6 +109,32 @@
     });
   }
 
+  /* ---------- About page: rotating portfolio image ---------- */
+  function initPortfolioImageRotator() {
+    const rotator = document.querySelector('.about-portfolio-rotator[data-rotate-images]');
+    if (!rotator) return;
+
+    const images = (rotator.getAttribute('data-rotate-images') || '')
+      .split('|')
+      .map(url => url.trim())
+      .filter(Boolean);
+
+    if (images.length < 2) return;
+
+    let current = 0;
+    const switchDelayMs = 3800;
+    const fadeDelayMs = 180;
+
+    window.setInterval(() => {
+      current = (current + 1) % images.length;
+      rotator.classList.add('fade-out');
+      window.setTimeout(() => {
+        rotator.src = images[current];
+        rotator.classList.remove('fade-out');
+      }, fadeDelayMs);
+    }, switchDelayMs);
+  }
+
   /* ---------- Active nav link ---------- */
   function setActiveNav() {
     const path = window.location.pathname.replace(/\/$/, '') || '/index.html';
@@ -126,6 +152,7 @@
     initMobileNav();
     initBioToggle();
     initSmoothScroll();
+    initPortfolioImageRotator();
     setActiveNav();
   });
 

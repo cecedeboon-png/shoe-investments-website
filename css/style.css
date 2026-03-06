@@ -696,7 +696,7 @@ a.portfolio-card {
 
 .team-photo {
   width: 100%;
-  height: 220px;
+  height: 300px;
   background: var(--grey-bg);
   display: flex;
   align-items: center;
@@ -704,6 +704,14 @@ a.portfolio-card {
   color: var(--grey-border);
   font-size: 3rem;
   overflow: hidden;
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center top !important;
+  padding: 8px 8px 0;
 }
 
 .team-info {
@@ -1295,6 +1303,14 @@ a.news-card {
   object-position: center;
 }
 
+.about-feature-image.about-portfolio-rotator {
+  transition: opacity 0.35s ease;
+}
+
+.about-feature-image.about-portfolio-rotator.fade-out {
+  opacity: 0.25;
+}
+
 .about-feature-copy {
   display: flex;
   flex-direction: column;
@@ -1583,6 +1599,7 @@ footer {
   .hero { min-height: 80vh; }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .team-photo { height: 250px; }
   .about-feature-image { height: 250px; }
   .about-invest-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
