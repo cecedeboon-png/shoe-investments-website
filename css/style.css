@@ -696,22 +696,19 @@ a.portfolio-card {
 
 .team-photo {
   width: 100%;
-  height: 300px;
-  background: var(--grey-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--grey-border);
-  font-size: 3rem;
+  height: auto;
+  background: transparent;
+  display: block;
   overflow: hidden;
 }
 
 .team-photo img {
   width: 100%;
-  height: 100%;
-  object-fit: contain !important;
+  height: auto;
+  object-fit: cover !important;
   object-position: center top !important;
-  padding: 8px 8px 0;
+  padding: 0;
+  display: block;
 }
 
 .team-info {
@@ -1638,7 +1635,6 @@ footer {
   .hero { min-height: 80vh; }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
-  .team-photo { height: 250px; }
   .about-feature-image { height: 250px; }
   .stage-apply-layout { grid-template-columns: 1fr; }
   .stage-apply-photo-wrap { justify-content: flex-start; }
