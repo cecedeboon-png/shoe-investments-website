@@ -1270,6 +1270,50 @@ a.news-card {
   gap: 16px;
 }
 
+/* ---------- About page feature sections ---------- */
+.about-feature-section {
+  padding: 88px 0;
+}
+
+.about-feature-layout {
+  align-items: stretch;
+  gap: 56px;
+}
+
+.about-feature-media {
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--grey-bg);
+}
+
+.about-feature-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-feature-copy h2 {
+  margin-bottom: 14px;
+}
+
+.about-feature-copy > p:not(.section-label) {
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+}
+
+.about-feature-copy .btn {
+  align-self: flex-start;
+}
+
 /* ---------- Pillars ---------- */
 .pillars-grid {
   display: grid;
@@ -1523,6 +1567,8 @@ footer {
 
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .about-feature-layout { gap: 28px; }
+  .about-feature-image { height: 320px; }
   .about-invest-grid { grid-template-columns: 1fr 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -1537,6 +1583,7 @@ footer {
   .hero { min-height: 80vh; }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .about-feature-image { height: 250px; }
   .about-invest-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
