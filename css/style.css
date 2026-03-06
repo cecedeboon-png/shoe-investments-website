@@ -1017,6 +1017,42 @@ a.portfolio-card {
   font-weight: 700;
 }
 
+.stage-apply-card {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.stage-apply-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.stage-apply-text p {
+  margin-bottom: 12px;
+}
+
+.stage-apply-text p:last-child {
+  margin-bottom: 0;
+}
+
+.stage-apply-photo-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stage-apply-photo {
+  width: 100%;
+  max-width: 220px;
+  border-radius: var(--radius);
+  border: 1px solid var(--grey-border);
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: var(--shadow);
+}
+
 /* ---------- Testimonials ---------- */
 .testimonials-grid {
   display: grid;
@@ -1586,6 +1622,8 @@ footer {
   .about-feature-layout { gap: 28px; }
   .about-feature-image { height: 320px; }
   .about-invest-grid { grid-template-columns: 1fr 1fr; }
+  .stage-apply-layout { grid-template-columns: minmax(0, 1fr) 180px; }
+  .stage-apply-photo { max-width: 180px; }
   .pillars-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-grid { grid-template-columns: 1fr; }
@@ -1601,6 +1639,9 @@ footer {
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .team-photo { height: 250px; }
   .about-feature-image { height: 250px; }
+  .stage-apply-layout { grid-template-columns: 1fr; }
+  .stage-apply-photo-wrap { justify-content: flex-start; }
+  .stage-apply-photo { max-width: 220px; }
   .about-invest-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
