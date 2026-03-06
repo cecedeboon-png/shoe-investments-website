@@ -1241,6 +1241,35 @@ a.news-card {
 .two-col.reverse { direction: rtl; }
 .two-col.reverse > * { direction: ltr; }
 
+/* ---------- About page founder block ---------- */
+.about-founder-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-founder-photo {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--grey-border);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.about-founder-caption {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.about-invest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
 /* ---------- Pillars ---------- */
 .pillars-grid {
   display: grid;
@@ -1494,6 +1523,7 @@ footer {
 
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .about-invest-grid { grid-template-columns: 1fr 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-grid { grid-template-columns: 1fr; }
@@ -1507,6 +1537,7 @@ footer {
   .hero { min-height: 80vh; }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .about-invest-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }

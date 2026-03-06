@@ -87,7 +87,10 @@
           <br>
           <p data-nl="Shoe Investments investeert in drie categorieën: directe investeringen in Nederlandse scale-ups, indirecte investeringen via fondsen wereldwijd, en vastgoed." data-en="Shoe Investments invests in three categories: direct investments in Dutch scale-ups, indirect investments via funds worldwide, and real estate.">Shoe Investments investeert in drie categorieën: directe investeringen in Nederlandse scale-ups, indirecte investeringen via fondsen wereldwijd, en vastgoed.</p>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        <div class="about-founder-wrap">
+          <img src="https://cdn.prod.website-files.com/64eccea52a843067f3f921f5/6530bf5bcf56bca49b10d965_Rectangle-min%20(1).jpg" alt="Pieter Schoen in zijn kantoor in Rotterdam" class="about-founder-photo" loading="lazy">
+          <div class="about-founder-caption" data-nl="Pieter Schoen - Founder Shoe Investments" data-en="Pieter Schoen - Founder Shoe Investments">Pieter Schoen - Founder Shoe Investments</div>
+          <div class="about-invest-grid">
             <a href="portfolio.html" class="invest-slide" style="display:flex;background:var(--navy);color:white;flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;border-radius:var(--radius);text-align:center;min-height:110px;text-decoration:none;">
               <div class="invest-slide-num" style="color:white;">Directe</div>
               <div class="invest-slide-label" data-nl="Investeringen" data-en="Investments">Investeringen</div>
@@ -99,6 +102,7 @@
             <div class="invest-slide" style="display:flex;background:var(--grey-bg);color:var(--navy);border:1px solid var(--grey-border);flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;border-radius:var(--radius);text-align:center;min-height:110px;">
               <div class="invest-slide-num">Vastgoed</div>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -157,30 +161,30 @@
   <section class="section-grey">
     <div class="container">
       <p class="section-label" data-nl="Routes" data-en="Routes">Routes</p>
-      <h2 class="section-title" data-nl="Bekijk het Shoe Investments ecosysteem" data-en="Explore the Shoe Investments ecosystem">Bekijk het Shoe Investments ecosysteem</h2>
-      <p class="section-intro" data-nl="Van directe portfolio-investeringen tot fondsen en ESG-thema's: vanaf deze pagina kun je direct door naar de belangrijkste delen van de website." data-en="From direct portfolio investments to funds and ESG themes: from this page you can move directly to the most important parts of the website.">Van directe portfolio-investeringen tot fondsen en ESG-thema's: vanaf deze pagina kun je direct door naar de belangrijkste delen van de website.</p>
+      <h2 class="section-title" data-nl="Direct door naar team, actueel en portfolio" data-en="Go straight to team, news and portfolio">Direct door naar team, actueel en portfolio</h2>
+      <p class="section-intro" data-nl="Net als op de originele Shoe Investments website kun je vanaf deze over-ons pagina meteen door naar het team, het laatste nieuws en het portfolio." data-en="Just like on the original Shoe Investments website, this page gives direct access to the team, latest news and portfolio.">Net als op de originele Shoe Investments website kun je vanaf deze over-ons pagina meteen door naar het team, het laatste nieuws en het portfolio.</p>
       <div class="portfolio-grid">
+        <a href="team.html" class="portfolio-card">
+          <img src="https://cdn.prod.website-files.com/64eccea52a843067f3f921f5/6613c8a79e651af2f034a796_Team%20Collage.jpg" alt="Team" class="portfolio-card-img" onerror="this.style.display='none'">
+          <div class="portfolio-card-body">
+            <div class="portfolio-company" data-nl="Team" data-en="Team">Team</div>
+            <div class="portfolio-meta" data-nl="Lees meer over het Shoe Investments team" data-en="Learn more about the Shoe Investments team">Lees meer over het Shoe Investments team</div>
+            <span class="portfolio-badge badge-current" data-nl="Route" data-en="Route">Route</span>
+          </div>
+        </a>
+        <a href="actueel.html" class="portfolio-card">
+          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/684ffb658123a22bd717f1c7_Brianial.png" alt="Actueel" class="portfolio-card-img" style="object-fit:cover;object-position:center 35%;" onerror="this.style.display='none'">
+          <div class="portfolio-card-body">
+            <div class="portfolio-company" data-nl="Actueel" data-en="News">Actueel</div>
+            <div class="portfolio-meta" data-nl="Bekijk recente updates en persberichten" data-en="View recent updates and press coverage">Bekijk recente updates en persberichten</div>
+            <span class="portfolio-badge badge-current" data-nl="Route" data-en="Route">Route</span>
+          </div>
+        </a>
         <a href="portfolio.html" class="portfolio-card">
           <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ee9a5b5c69653bcb5e36_swishfund.png" alt="Portfolio" class="portfolio-card-img" style="object-fit:cover;object-position:center 35%;" onerror="this.style.display='none'">
           <div class="portfolio-card-body">
             <div class="portfolio-company" data-nl="Portfolio" data-en="Portfolio">Portfolio</div>
-            <div class="portfolio-meta" data-nl="Bekijk directe deelnemingen" data-en="View direct investments">Bekijk directe deelnemingen</div>
-            <span class="portfolio-badge badge-current" data-nl="Route" data-en="Route">Route</span>
-          </div>
-        </a>
-        <a href="fondsen.html" class="portfolio-card">
-          <img src="images/goldman-sachs-logo.svg" alt="Fondsen" class="portfolio-card-img" style="object-fit:contain;background:#fff;padding:28px;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company" data-nl="Fondsen" data-en="Funds">Fondsen</div>
-            <div class="portfolio-meta" data-nl="Ontdek onze fondsrelaties" data-en="Discover our fund exposure">Ontdek onze fondsrelaties</div>
-            <span class="portfolio-badge badge-current" data-nl="Route" data-en="Route">Route</span>
-          </div>
-        </a>
-        <a href="esg.html" class="portfolio-card">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae752666d124cef70362_Image_(9).png" alt="ESG" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">ESG</div>
-            <div class="portfolio-meta" data-nl="Lees over impact en Groningen" data-en="Read about impact and Groningen">Lees over impact en Groningen</div>
+            <div class="portfolio-meta" data-nl="Ga direct naar onze portfolio bedrijven" data-en="Go directly to our portfolio companies">Ga direct naar onze portfolio bedrijven</div>
             <span class="portfolio-badge badge-current" data-nl="Route" data-en="Route">Route</span>
           </div>
         </a>
