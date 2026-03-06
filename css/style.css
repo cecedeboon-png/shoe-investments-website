@@ -1024,7 +1024,7 @@ a.portfolio-card {
 
 .stage-apply-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 260px;
   gap: 24px;
   align-items: start;
   margin-top: 16px;
@@ -1045,11 +1045,12 @@ a.portfolio-card {
 
 .stage-apply-photo {
   width: 100%;
-  max-width: 220px;
-  border-radius: var(--radius);
-  border: 1px solid var(--grey-border);
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 2px solid var(--grey-border);
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center top;
   box-shadow: var(--shadow);
 }
 
@@ -1075,8 +1076,8 @@ a.portfolio-card {
 }
 
 .testimonial-avatar {
-  width: 52px;
-  height: 52px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
@@ -1622,8 +1623,8 @@ footer {
   .about-feature-layout { gap: 28px; }
   .about-feature-image { height: 320px; }
   .about-invest-grid { grid-template-columns: 1fr 1fr; }
-  .stage-apply-layout { grid-template-columns: minmax(0, 1fr) 180px; }
-  .stage-apply-photo { max-width: 180px; }
+  .stage-apply-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+  .stage-apply-photo { max-width: 220px; }
   .pillars-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-grid { grid-template-columns: 1fr; }
@@ -1641,7 +1642,7 @@ footer {
   .about-feature-image { height: 250px; }
   .stage-apply-layout { grid-template-columns: 1fr; }
   .stage-apply-photo-wrap { justify-content: flex-start; }
-  .stage-apply-photo { max-width: 220px; }
+  .stage-apply-photo { max-width: 200px; }
   .about-invest-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
