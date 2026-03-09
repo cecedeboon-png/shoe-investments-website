@@ -730,6 +730,11 @@ a.portfolio-card {
   transform-origin: center center;
 }
 
+.team-photo img.team-photo-zoom-out {
+  transform: scale(1);
+  object-position: center 22% !important;
+}
+
 .team-info {
   padding: 20px;
 }
