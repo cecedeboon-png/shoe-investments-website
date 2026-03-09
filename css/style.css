@@ -476,9 +476,14 @@ section { padding: 80px 0; }
   font-weight: 700;
   border-bottom: 1px solid rgba(28, 95, 168, 0.35);
   transition: color var(--transition), border-color var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
-.inline-company-link:hover {
+.inline-company-link:hover,
+.inline-company-link:focus-visible {
   color: var(--blue);
   border-color: var(--blue);
 }
@@ -708,7 +713,7 @@ a.portfolio-card {
 
 .team-photo {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 10;
   background: transparent;
   display: block;
   overflow: hidden;
@@ -716,11 +721,13 @@ a.portfolio-card {
 
 .team-photo img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover !important;
   object-position: center top !important;
   padding: 0;
   display: block;
+  transform: scale(1.06);
+  transform-origin: center center;
 }
 
 .team-info {
@@ -1435,13 +1442,15 @@ a.news-card {
 }
 
 .about-team-media {
-  background: linear-gradient(180deg, #dce6f1 0%, #eef3f8 100%);
+  background: var(--white);
 }
 
 .about-feature-image.about-team-collage {
   object-fit: contain;
   object-position: center;
-  padding: 16px 10px 0;
+  padding: 0;
+  transform: scale(1.08);
+  transform-origin: center center;
 }
 
 .about-feature-image.about-portfolio-rotator {
@@ -1726,7 +1735,7 @@ footer {
   .two-col { grid-template-columns: 1fr; gap: 32px; }
   .about-feature-layout { gap: 28px; }
   .about-feature-image { height: 320px; }
-  .about-feature-image.about-team-collage { padding: 12px 8px 0; }
+  .about-feature-image.about-team-collage { transform: scale(1.06); }
   .about-invest-grid { grid-template-columns: 1fr 1fr; }
   .stage-apply-layout { grid-template-columns: minmax(0, 1fr) 220px; }
   .stage-apply-photo { max-width: 220px; }
@@ -1756,7 +1765,7 @@ footer {
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .about-feature-image { height: 250px; }
-  .about-feature-image.about-team-collage { padding: 10px 8px 0; }
+  .about-feature-image.about-team-collage { transform: scale(1.04); }
   .stage-apply-layout { grid-template-columns: 1fr; }
   .stage-apply-photo-wrap { justify-content: flex-start; }
   .stage-apply-photo { max-width: 200px; }
@@ -1809,11 +1818,10 @@ footer {
   justify-content: center;
   gap: 8px;
   padding: 0;
-  transition: opacity 0.25s ease;
-}
-
-.fcard:hover .fcard-front {
-  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
 }
 
 .fcard-logo {
@@ -1865,12 +1873,27 @@ footer {
   flex-direction: column;
   gap: 6px;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  visibility: hidden;
+  z-index: 1;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
   overflow-y: auto;
+  pointer-events: none;
 }
 
-.fcard:hover .fcard-hover {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .fcard:hover .fcard-front,
+  .fcard:focus-visible .fcard-front {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .fcard:hover .fcard-hover,
+  .fcard:focus-visible .fcard-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 .fcard-hover-name {
