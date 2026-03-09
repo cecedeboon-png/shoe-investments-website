@@ -1791,7 +1791,7 @@ footer {
   border: 1px solid var(--grey-border);
   border-radius: var(--radius);
   overflow: hidden;
-  height: 216px;
+  height: 200px;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
@@ -1853,19 +1853,6 @@ footer {
   padding: 6px 8px;
   width: 100%;
   background: white;
-}
-
-.fcard-front-desc {
-  font-size: 0.66rem;
-  color: var(--grey-text);
-  line-height: 1.4;
-  text-align: center;
-  padding: 0 12px 10px;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .fcard-hover {
@@ -1936,7 +1923,7 @@ footer {
 
 @media (max-width: 600px) {
   .fondsen-hover-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-  .fcard { height: 176px; }
+  .fcard { height: 160px; }
 }
 
 /* ---------- ESG images ---------- */
