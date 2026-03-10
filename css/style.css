@@ -731,8 +731,8 @@ a.portfolio-card {
 }
 
 .team-photo img.team-photo-zoom-out {
-  transform: scale(1);
-  object-position: center 22% !important;
+  transform: scale(0.88);
+  object-position: center 20% !important;
 }
 
 .team-info {
