@@ -1349,14 +1349,56 @@ a.news-card {
 
 /* ---------- Page Hero (inner pages) ---------- */
 .page-hero {
-  background: var(--navy);
-  background-image: url('../images/hero-slide1.png');
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
+  --page-hero-image: url('../images/hero-slide1.png');
+  --page-hero-fallback: url('../images/rotterdam-skyline.jpg');
+  --page-hero-position: center 48%;
+  --page-hero-position-mobile: center 50%;
+  --page-hero-overlay: linear-gradient(118deg, rgba(7, 25, 49, 0.76), rgba(7, 25, 49, 0.58));
+  background-color: var(--navy);
+  background-image: var(--page-hero-overlay), var(--page-hero-image), var(--page-hero-fallback);
+  background-size: cover, cover, cover;
+  background-position: var(--page-hero-position), center, center;
+  background-repeat: no-repeat;
   padding: 80px 0 60px;
   margin-bottom: 0;
   position: relative;
+}
+
+/* Page hero mapping (swap image urls here) */
+.page-hero[data-page-hero="over-ons"] {
+  --page-hero-image: url('../images/hero-over-ons-rotterdam-kubus.jpg');
+  --page-hero-position: center 56%;
+  --page-hero-position-mobile: center 62%;
+}
+
+.page-hero[data-page-hero="esg"] {
+  --page-hero-image: url('../images/hero-esg-rotterdam-markthal.jpg');
+  --page-hero-position: center 58%;
+  --page-hero-position-mobile: center 58%;
+}
+
+.page-hero[data-page-hero="portfolio"] {
+  --page-hero-image: url('../images/hero-portfolio-rotterdam-oudehaven.jpg');
+  --page-hero-position: center 57%;
+  --page-hero-position-mobile: center 62%;
+}
+
+.page-hero[data-page-hero="actueel"] {
+  --page-hero-image: url('../images/hero-actueel-rotterdam-skyline.jpg');
+  --page-hero-position: center 47%;
+  --page-hero-position-mobile: center 50%;
+}
+
+.page-hero[data-page-hero="stage"] {
+  --page-hero-image: url('../images/hero-stage-rotterdam-centraal.jpg');
+  --page-hero-position: center 54%;
+  --page-hero-position-mobile: center 56%;
+}
+
+.page-hero[data-page-hero="fondsen"] {
+  --page-hero-image: url('../images/hero-fondsen-rotterdam-erasmus.jpg');
+  --page-hero-position: center 52%;
+  --page-hero-position-mobile: center 57%;
 }
 
 .page-hero-eyebrow {
@@ -1812,6 +1854,10 @@ footer {
 @media (max-width: 600px) {
   section { padding: 56px 0; }
   .hero { min-height: 80vh; }
+  .page-hero {
+    padding: 72px 0 52px;
+    background-position: var(--page-hero-position-mobile), center, center;
+  }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .voccp-card-img { height: 140px; }
