@@ -1533,13 +1533,23 @@ a.news-card {
   transform: translateY(-3px);
 }
 
+.voccp-card-img-link {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid var(--grey-border);
+}
+
 .voccp-card-img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   object-position: center;
   display: block;
-  border-bottom: 1px solid var(--grey-border);
+  transition: transform 0.25s ease;
+}
+
+.voccp-card-img-link:hover .voccp-card-img {
+  transform: scale(1.03);
 }
 
 .voccp-card h4,
