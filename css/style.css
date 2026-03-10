@@ -1518,20 +1518,55 @@ a.news-card {
 }
 
 .voccp-card {
-  background: var(--grey-bg);
+  background: var(--white);
   border: 1px solid var(--grey-border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.voccp-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.voccp-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-bottom: 1px solid var(--grey-border);
+}
+
+.voccp-card h4,
+.voccp-card p {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .voccp-card h4 {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 8px;
+  margin: 16px 0 8px;
 }
 
-.voccp-card p { font-size: 0.82rem; }
+.voccp-card p {
+  font-size: 0.82rem;
+  margin-bottom: 10px;
+}
+
+.voccp-meta {
+  font-size: 0.74rem !important;
+  color: var(--blue);
+  font-weight: 600;
+  margin-top: auto;
+  padding-bottom: 18px;
+}
 
 /* ---------- Footer ---------- */
 footer {
@@ -1769,6 +1804,7 @@ footer {
   .hero { min-height: 80vh; }
   .footer-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .voccp-card-img { height: 140px; }
   .about-feature-image { height: 250px; }
   .about-feature-image.about-team-collage { transform: scale(1.04); }
   .stage-apply-layout { grid-template-columns: 1fr; }
