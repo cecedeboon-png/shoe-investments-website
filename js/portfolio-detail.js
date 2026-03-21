@@ -97,7 +97,7 @@ if(heroParent)heroParent.appendChild(heroMeta);
 // Find the main content wrapper (first section after hero with light/white background)
 // We'll create a complete white content section and inject it
 var mainContent=document.createElement('div');
-mainContent.style.cssText='background:#fff;padding:60px 5%;max-width:100%;box-sizing:border-box';
+mainContent.style.cssText='background:#fff;padding:48px 5%;max-width:1200px;margin:0 auto;box-sizing:border-box';
 mainContent.innerHTML=
 // Info bar - 4 columns
 '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-bottom:40px;border-bottom:1px solid #e5e7eb;margin-bottom:40px">'
@@ -113,7 +113,7 @@ mainContent.innerHTML=
 +'<p style="font-size:16px;line-height:1.8;color:#333;margin:0 0 28px">'+d.d+'</p>'
 +(d.url?'<a href="https://'+d.url+'" target="_blank" style="display:inline-block;border:2px solid #1a2b4a;color:#1a2b4a;padding:12px 28px;font-size:14px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:all .2s">BEZOEK WEBSITE &rarr;</a>':'')
 +'</div>'
-+(d.img?'<div style="flex:0 0 400px;max-width:100%"><img src="'+d.img+'" alt="'+d.n+'" style="width:100%;height:auto;border-radius:8px;object-fit:cover"></div>':'')
++(d.img?'<div style="flex:0 0 320px;max-width:100%"><img src="'+d.img+'" alt="'+d.n+'" style="width:100%;max-height:280px;border-radius:8px;object-fit:cover"></div>':'')
 +'</div>';
 
 // Find the hero section and insert the white content after it
