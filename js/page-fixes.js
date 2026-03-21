@@ -1,6 +1,14 @@
 (function(){
 var p=location.pathname;
 
+// ===== ESG: Replace Pieter photo with ESG-related image =====
+if(p.indexOf('esg')>-1){
+var esgImg='https://cdn.prod.website-files.com/64eccea52a843067f3f921f5/64f08d78d2578cea84424397_Rectangle%20(17).png';
+document.querySelectorAll('.si-founder-photo').forEach(function(ph){
+ph.style.cssText="background-image:url('"+esgImg+"')!important;background-size:cover!important;background-position:center!important;min-height:320px!important;border-radius:8px!important";
+});
+}
+
 // ===== ACTUEEL: Add article links =====
 if(p.indexOf('actueel')>-1){
 var links=[
