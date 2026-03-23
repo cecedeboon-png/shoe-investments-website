@@ -123,7 +123,7 @@ else if(h1){var target=h1.parentElement;if(target&&target.parentElement){target=
 var found=false;
 document.querySelectorAll('section,[class*="section"]').forEach(function(sec){
 if(sec===mainContent||sec.contains(mainContent))return;
-if(found){var txt=sec.textContent.trim();if(txt.indexOf('This is some text')>-1||txt.indexOf('Company tagline')>-1||txt.length<50)sec.style.display='none'}
+if(found){var txt=sec.textContent.trim();if(txt.indexOf('This is some text')>-1||txt.indexOf('Company tagline')>-1||txt.indexOf('Company description text')>-1||txt.indexOf('Over het bedrijf')>-1||txt.indexOf('Company image')>-1||txt.length<50)sec.style.display='none'}
 if(sec.querySelector('h1'))found=true;
 });
 document.querySelectorAll('a').forEach(function(a){if(a.textContent.indexOf('Bezoek website')>-1&&!mainContent.contains(a)){if(d.url){a.href='https://'+d.url;a.target='_blank'}a.style.display='none'}});
