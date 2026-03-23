@@ -127,25 +127,11 @@ if(found){var txt=sec.textContent.trim();if(txt.indexOf('This is some text')>-1|
 if(sec.querySelector('h1'))found=true;
 });
 document.querySelectorAll('a').forEach(function(a){if(a.textContent.indexOf('Bezoek website')>-1&&!mainContent.contains(a)){if(d.url){a.href='https://'+d.url;a.target='_blank'}a.style.display='none'}});
-// Hide ALL template content after our injected white section
-// Walk siblings of mainContent and hide everything except CTA and footer
-var sib=mainContent.nextElementSibling;
-while(sib){
-var next=sib.nextElementSibling;
-var txt=sib.textContent.trim();
-// Keep CTA section and footer
-if(txt.match(/Ge.nteresseerd/)||sib.tagName==='FOOTER'||sib.querySelector('footer')){sib=next;continue}
-sib.style.display='none';
-sib=next;
-}
-// Also hide any sibling sections of the hero that are template placeholders
-if(heroSection){var hs=heroSection.nextElementSibling;
-while(hs){var hn=hs.nextElementSibling;
-if(hs===mainContent){hs=hn;continue}
-var ht=hs.textContent.trim();
-if(ht.match(/Ge.nteresseerd/)||hs.tagName==='FOOTER'||hs.querySelector('footer')){hs=hn;continue}
-if(ht.indexOf('Company')>-1||ht.indexOf('Over het')>-1||ht.indexOf('This is some')>-1||ht.length<30)hs.style.display='none';
-hs=hn;}}
+// Hide template placeholder sections (si-section) that sit between hero and CTA/footer
+document.querySelectorAll('section.si-section').forEach(function(sec){
+var txt=sec.textContent.trim();
+if(txt.indexOf('This is some text')>-1||txt.indexOf('Company description')>-1||txt.indexOf('Over het bedrijf')>-1||txt.indexOf('Company image')>-1)sec.style.display='none';
+});
 }
 }
 
