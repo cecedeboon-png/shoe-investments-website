@@ -127,18 +127,25 @@ if(found){var txt=sec.textContent.trim();if(txt.indexOf('This is some text')>-1|
 if(sec.querySelector('h1'))found=true;
 });
 document.querySelectorAll('a').forEach(function(a){if(a.textContent.indexOf('Bezoek website')>-1&&!mainContent.contains(a)){if(d.url){a.href='https://'+d.url;a.target='_blank'}a.style.display='none'}});
-// Hide ALL remaining placeholder elements anywhere on page
-document.querySelectorAll('*').forEach(function(el){
-if(el.children.length===0){var t=el.textContent.trim();
-if(t.indexOf('Company description text')===0||t==='OVER HET BEDRIJF'||t==='Company image'){
-var w=el.closest('div')||el.parentElement;if(w&&!mainContent.contains(w))w.style.display='none'}}});
-// Hide empty wrapper divs between our content and footer
-var allDivs=mainContent.parentElement?mainContent.parentElement.children:[];
-var pastContent=false;
-for(var i=0;i<allDivs.length;i++){var ch=allDivs[i];
-if(ch===mainContent){pastContent=true;continue}
-if(pastContent&&ch.tagName!=='FOOTER'&&!ch.querySelector('footer')&&!ch.textContent.trim().match(/Ge.nteresseerd/)){
-var t2=ch.textContent.trim();if(t2.indexOf('Company')>-1||t2.indexOf('Over het')>-1||t2.length<20)ch.style.display='none'}}
+// Hide ALL template content after our injected white section
+// Walk siblings of mainContent and hide everything except CTA and footer
+var sib=mainContent.nextElementSibling;
+while(sib){
+var next=sib.nextElementSibling;
+var txt=sib.textContent.trim();
+// Keep CTA section and footer
+if(txt.match(/Ge.nteresseerd/)||sib.tagName==='FOOTER'||sib.querySelector('footer')){sib=next;continue}
+sib.style.display='none';
+sib=next;
+}
+// Also hide any sibling sections of the hero that are template placeholders
+if(heroSection){var hs=heroSection.nextElementSibling;
+while(hs){var hn=hs.nextElementSibling;
+if(hs===mainContent){hs=hn;continue}
+var ht=hs.textContent.trim();
+if(ht.match(/Ge.nteresseerd/)||hs.tagName==='FOOTER'||hs.querySelector('footer')){hs=hn;continue}
+if(ht.indexOf('Company')>-1||ht.indexOf('Over het')>-1||ht.indexOf('This is some')>-1||ht.length<30)hs.style.display='none';
+hs=hn;}}
 }
 }
 
