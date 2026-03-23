@@ -156,4 +156,68 @@ var funds={'Goldman Sachs':{d:'Toonaangevend wereldwijd investeringsbankier en v
 document.querySelectorAll('.si-portfolio-card').forEach(function(card){var h=card.querySelector('h3,h4');if(!h)return;var n=h.textContent.trim(),fund=null;for(var k in funds){if(n.indexOf(k)>-1){fund=funds[k];break}}if(!fund)return;card.style.position='relative';card.style.overflow='hidden';card.style.transition='box-shadow .25s ease,transform .25s ease';var ov=document.createElement('div');ov.className='si-fund-hover';var nm=document.createElement('div');nm.className='si-fund-hover-name';nm.textContent=n;ov.appendChild(nm);var ds=document.createElement('div');ds.className='si-fund-hover-desc';ds.textContent=fund.d;ov.appendChild(ds);if(fund.s&&fund.s.length){var ul=document.createElement('ul');ul.className='si-fund-hover-subs';fund.s.forEach(function(sub){var li=document.createElement('li');li.textContent=sub;ul.appendChild(li)});ov.appendChild(ul)}card.appendChild(ov)});
 }
 
+// ===== ESG PAGE: Links, category labels, card reorder, section reorder =====
+if(p.indexOf('esg')>-1){
+  var esgLinks=[
+    {title:'Loop',url:'https://www.loop-biotech.com',cat:'ENVIRONMENTAL'},
+    {title:'Equalture',url:'https://www.equalture.com',cat:'SOCIAL'},
+    {title:'Mega',url:'https://mega.be',cat:'ENVIRONMENTAL'},
+    {title:"Mama's Maaltijden",url:'https://www.mamasmaaltijden.nl',cat:'SOCIAL'},
+    {title:'Sabotage',url:'https://www.quotenet.nl/zakelijk/a42771874/pieter-schoen-oplossing-groningen-sabbotage-documentaire/',cat:'TRANSITION'},
+    {title:'Forbion',url:'https://forbion.com',cat:'GOVERNANCE & HEALTH',url2:'https://alsinvestmentfund.com',label2:'ALS Fund'}
+  ];
+
+  var cards=document.querySelectorAll('.si-value-card');
+
+  // Swap cards 2 and 3 (Equalture and Mega) to match GitHub order: Loop, Mega, Equalture
+  if(cards.length>=3){
+    var parent=cards[1].parentElement;
+    if(parent){parent.insertBefore(cards[2],cards[1])}
+    // Re-query after reorder
+    cards=document.querySelectorAll('.si-value-card');
+  }
+
+  // Add category labels and links
+  cards.forEach(function(card,i){
+    if(i>=esgLinks.length)return;
+    var info=esgLinks[i];
+
+    // Add category label
+    var label=document.createElement('span');
+    label.textContent=info.cat;
+    label.style.cssText='display:inline-block;font-size:10px;font-weight:700;color:#1C5FA8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px';
+    var h=card.querySelector('h3,h4');
+    if(h)h.parentElement.insertBefore(label,h);
+
+    // Make card clickable
+    card.style.cursor='pointer';
+    card.style.transition='box-shadow .25s ease,transform .25s ease';
+    card.onmouseenter=function(){card.style.boxShadow='0 6px 24px rgba(10,35,66,.14)';card.style.transform='translateY(-3px)'};
+    card.onmouseleave=function(){card.style.boxShadow='';card.style.transform=''};
+    card.onclick=function(){window.open(info.url,'_blank')};
+
+    // Add link buttons
+    var linkDiv=document.createElement('div');
+    linkDiv.style.cssText='margin-top:12px';
+    var titleParts=info.title;
+    if(info.url2){
+      linkDiv.innerHTML='<a href="'+info.url+'" target="_blank" style="display:inline-block;color:#1C5FA8;font-size:13px;font-weight:600;text-decoration:none;margin-right:16px">Forbion &rarr;</a><a href="'+info.url2+'" target="_blank" style="display:inline-block;color:#1C5FA8;font-size:13px;font-weight:600;text-decoration:none">'+info.label2+' &rarr;</a>';
+      card.onclick=null;
+    }
+    card.appendChild(linkDiv);
+  });
+
+  // Move "Van ESG naar uitvoering" section before CTA
+  var esgSections=document.querySelectorAll('section');
+  var vanEsgSec=null,ctaSec=null;
+  esgSections.forEach(function(sec){
+    var txt=sec.textContent.trim();
+    if(txt.indexOf('Van ESG naar uitvoering')>-1)vanEsgSec=sec;
+    if(txt.indexOf('Vragen? Neem contact')>-1)ctaSec=sec;
+  });
+  if(vanEsgSec&&ctaSec&&ctaSec.parentElement){
+    ctaSec.parentElement.insertBefore(vanEsgSec,ctaSec);
+  }
+}
+
 })();
