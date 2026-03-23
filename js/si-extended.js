@@ -127,6 +127,18 @@ if(found){var txt=sec.textContent.trim();if(txt.indexOf('This is some text')>-1|
 if(sec.querySelector('h1'))found=true;
 });
 document.querySelectorAll('a').forEach(function(a){if(a.textContent.indexOf('Bezoek website')>-1&&!mainContent.contains(a)){if(d.url){a.href='https://'+d.url;a.target='_blank'}a.style.display='none'}});
+// Hide ALL remaining placeholder elements anywhere on page
+document.querySelectorAll('*').forEach(function(el){
+if(el.children.length===0){var t=el.textContent.trim();
+if(t.indexOf('Company description text')===0||t==='OVER HET BEDRIJF'||t==='Company image'){
+var w=el.closest('div')||el.parentElement;if(w&&!mainContent.contains(w))w.style.display='none'}}});
+// Hide empty wrapper divs between our content and footer
+var allDivs=mainContent.parentElement?mainContent.parentElement.children:[];
+var pastContent=false;
+for(var i=0;i<allDivs.length;i++){var ch=allDivs[i];
+if(ch===mainContent){pastContent=true;continue}
+if(pastContent&&ch.tagName!=='FOOTER'&&!ch.querySelector('footer')&&!ch.textContent.trim().match(/Ge.nteresseerd/)){
+var t2=ch.textContent.trim();if(t2.indexOf('Company')>-1||t2.indexOf('Over het')>-1||t2.length<20)ch.style.display='none'}}
 }
 }
 
