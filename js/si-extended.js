@@ -194,6 +194,87 @@ var lnk=document.createElement('div');lnk.textContent='Bezoek website \u2192';ln
 card.appendChild(ov)});
 }
 
+// ===== TEAM PAGE: Labels, titles, dates, advisors =====
+if(p.indexOf('team')>-1){
+  var teamData={
+    'Pieter Schoen':{r:'FOUNDER',y:2016,bio:'Ondernemer en investeerder. Pieter Schoen kent zijn weg in marketing, sales en diverse mediakanalen.'},
+    'Lodewijk van der Heyden':{r:'CHIEF FINANCIAL OFFICER',y:2025,bio:'Lodewijk van der Heyden is CFO bij Shoe Investments en biedt financieel advies aan portfoliobedrijven.'},
+    'Tim Engels':{r:'INVESTMENT MANAGER',y:2024,bio:'Tim Engels is investment manager bij Shoe Investments, betrokken bij directe investeringen.'},
+    'Laurens van Hillegersberg':{r:'INVESTMENT ANALYST',y:2025,bio:'Laurens van Hillegersberg heeft een dubbele Bachelor in Law en Business Administration.'},
+    'Koen de Vrij':{r:'INVESTMENT MANAGER',y:2021,bio:'Koen de Vrij studeerde Tax Law aan Leiden University en Econometrics aan Erasmus.'},
+    'Pepijn van der Leije':{r:'INVESTMENT MANAGER',y:2021,bio:'Pepijn is verantwoordelijk voor dealflow bij Shoe, gericht op het identificeren van kansen.'},
+    'Ronald van der Heide':{r:'VENTURE PARTNER',y:2018,bio:'Ronald van der Heide is venture partner bij Shoe Investments.'},
+    'Claris Kuik':{r:'LIQUIDITEITS- EN VERMOGENSBEHEER',y:2018,bio:'Claris is verantwoordelijk voor liquiditeits- en vermogensplanning.'},
+    'Lisette Barendregt-Breugem':{r:'OFFICE MANAGER',y:2019,bio:'Lisette Barendregt-Breugem is office manager bij Shoe Investments.'},
+    'Vincent van der Stap':{r:'FINANCE & CONTROL',y:2020,bio:'Vincent van der Stap werkt op de afdeling Finance & Control.'},
+    'Wilma van Altena':{r:'FINANCE & CONTROL',y:2021,bio:'Wilma van Altena werkt op de afdeling Finance & Control.'},
+    'Diana Smit':{r:'PERSONAL ASSISTANT',y:2022,bio:'Diana Smit is personal assistant bij Shoe Investments.'}
+  };
+  var advisors=['Erik Schmit','Matthijs Metzemaekers'];
+
+  // Add "KERNTEAM" label before the team grid
+  var firstCard=document.querySelector('.si-portfolio-card');
+  if(firstCard){
+    var gridParent=firstCard.parentElement;
+    var label=document.createElement('p');
+    label.textContent='KERNTEAM';
+    label.style.cssText='font-size:11px;font-weight:700;color:#1C5FA8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px';
+    gridParent.parentElement.insertBefore(label,gridParent);
+  }
+
+  // Style team cards
+  document.querySelectorAll('.si-portfolio-card').forEach(function(card){
+    var h=card.querySelector('h4');if(!h)return;
+    var n=h.textContent.trim();
+    var td=teamData[n];
+    var isAdvisor=advisors.indexOf(n)>-1;
+
+    // Style role in blue uppercase
+    var role=card.querySelector('.si-portfolio-meta');
+    if(role){
+      if(td){role.textContent=td.r}
+      else if(isAdvisor){role.textContent='ADVISOR'}
+      role.style.cssText='font-size:11px;font-weight:700;color:#1C5FA8;text-transform:uppercase;letter-spacing:0.08em;margin:4px 0';
+    }
+
+    // Add "Werkzaam sinds" date
+    if(td&&td.y){
+      var dateEl=document.createElement('p');
+      dateEl.textContent='Werkzaam sinds '+td.y;
+      dateEl.style.cssText='font-size:12px;color:#6B7A8D;margin:4px 0 8px';
+      if(role)role.after(dateEl);
+    }
+
+    // Add short bio
+    if(td&&td.bio){
+      var bioEl=document.createElement('p');
+      bioEl.textContent=td.bio;
+      bioEl.style.cssText='font-size:12.5px;color:#4a5568;line-height:1.5;margin:0 0 8px';
+      card.querySelector('.si-portfolio-card-body').appendChild(bioEl);
+    }
+
+    // Mark advisor cards for separation
+    if(isAdvisor)card.setAttribute('data-advisor','true');
+  });
+
+  // Move advisor cards to separate section
+  var advisorCards=document.querySelectorAll('[data-advisor="true"]');
+  if(advisorCards.length>0&&firstCard){
+    var gridP=firstCard.parentElement;
+    var advisorSection=document.createElement('div');
+    advisorSection.style.cssText='margin-top:60px;padding-top:40px;border-top:1px solid #e2e6ea';
+    var aLabel=document.createElement('p');
+    aLabel.textContent='ADVISORS';
+    aLabel.style.cssText='font-size:11px;font-weight:700;color:#1C5FA8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px';
+    advisorSection.appendChild(aLabel);
+    var aGrid=document.createElement('div');
+    aGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px';
+    advisorCards.forEach(function(c){aGrid.appendChild(c)});
+    advisorSection.appendChild(aGrid);
+    gridP.parentElement.insertBefore(advisorSection,gridP.nextSibling);
+  }
+}
+
 // ===== ESG PAGE: Links, category labels, card reorder, section reorder =====
 if(p.indexOf('esg')>-1){
   var esgLinks=[
